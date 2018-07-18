@@ -23,12 +23,24 @@ public class Perceptron {
         }
         System.out.println("Sum Final : "+sumOfProduct);
 
+        sumOfProduct += generateBias();
+
         if (sigmoid(sumOfProduct) > 0.5){
             System.out.println(sigmoid(sumOfProduct)+" Neuron fires");
         }else{
             System.out.println(sigmoid(sumOfProduct)+" Neuron doesn't");
         }
 
+    }
+    //Method to return the Bias
+    public double generateBias(){
+        Random r = new Random();
+        int max = 10;
+        int min = -10;
+
+        double number = r.nextInt(max + 1 -min) + min;
+
+        return number;
     }
 
     //Method to generate weights
